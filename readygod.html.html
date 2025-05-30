@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital eService - Realistic UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #fd880e;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+}
+.header-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-wrap img {
+  width: 150px;
+}
+
+    header img {
+      height: 80px;
+    }
+
+    header h1 {
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    #logoutBtn {
+      padding: 10px 18px;
+      background: white;
+      color: #fd880e;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-right: 10px;
+      display: none;
+    }
+
+    #logoutBtn:hover {
+      background: #fff3e0;
+    }
+
+    nav {
+      display: none;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 12px 20px;
+      display: inline-block;
+      font-weight: 600;
+      border-radius: 5px;
+      margin: 0 5px;
+      transition: 0.3s;
+    }
+
+    nav a.active,
+    nav a:hover {
+      background: #fd880e;
+      color: white;
+    }
+
+    .login-box {
+      width: 320px;
+      background: #fff;
+      margin: 80px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background: #fd880e;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #e06f00;
+    }
+
+    .container {
+      display: none;
+      padding: 30px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .container.active-tab {
+      display: block;
+    }
+
+    .sub-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .sub-tabs button {
+      background: #fd880e;
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .sub-tabs button:hover {
+      background: #e06f00;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      width: 170px;
+      background: white;
+      text-align: center;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @media screen and (max-width: 768px) {
+      .card-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+ 
+
+  <!-- rest of your HTML stays the same -->
+
+  <script>
+    function login() {
+      const u = document.getElementById("username").value;
+      const p = document.getElementById("password").value;
+      if (u === "Shivam" && p === "9015") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("navbar").style.display = "block";
+        document.getElementById("dashboard").style.display = "block";
+        document.getElementById("logoutBtn").style.display = "inline-block";
+      } else {
+        document.getElementById("loginMsg").innerText = "Invalid credentials!";
+      }
+    }
+
+    function logout() {
+      document.getElementById("loginBox").style.display = "block";
+      document.getElementById("navbar").style.display = "none";
+      document.getElementById("logoutBtn").style.display = "none";
+      document.querySelectorAll(".container").forEach(c => c.style.display = "none");
+    }
+  </script>
+
+</body>
+</html>
+
+
+ 
+<!DOCTYPE html><html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Digital eService - Final Website</title>  
+  <style>  
+    body { font-family: Arial, sans-serif; background: #f2f2f2; margin: 0; padding: 0; }  
+    header { background: #fd880e; padding: 20px; text-align: center; color: white; }  
+    nav { display: none; background: #222; text-align: center; }  
+    nav a {  
+      color: white; text-decoration: none;  
+      padding: 14px 20px; display: inline-block;  
+    }  
+    nav a.active, nav a:hover { background: #fd880e; }  
+    .login-box {  
+      width: 300px; background: #fff; margin: 80px auto; padding: 20px;  
+      box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 8px;  
+    }  
+    .login-box input, .login-box button {  
+      width: 90%; padding: 10px; margin: 10px 0;  
+    }  
+    .login-box button { background: #fd880e; border: none; color: white; cursor: pointer; }  
+    .container { display: none; padding: 20px; }  
+    .active-tab { display: block !important; }  
+    .sub-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 20px; }  
+    .sub-tabs button {  
+      background: #fd880e; border: none; color: white;  
+      padding: 10px 15px; border-radius: 5px; cursor: pointer;  
+    }  
+    .card-grid {  
+      display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;  
+      margin-top: 20px;  
+    }  
+    .card {  
+      width: 180px; background: white; text-align: center; padding: 15px;  
+      border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);  
+    }  
+    .card img {  
+      width: 60px; height: 60px; margin-bottom: 10px;  
+    }  
+    footer {  
+      background: #222; color: white; text-align: center; padding: 20px;  
+      margin-top: 30px;  
+    }  
+  </style>  
+</head>  
+<body>  
+
+<header>
+  <div class="header-wrap">
+    <img src="images/loco.jpg" alt="Digital eService" width="120">
+  </div>
+  <h1>Digital eService</h1>
+  <button id="logoutBtn" onclick="logout()">Logout</button>
+</header> 
+<div class="login-box" id="loginBox">  
+    <h2>Login</h2>  
+    <input type="text" id="username" placeholder="Username">  
+    <input type="password" id="password" placeholder="Password">  
+    <button onclick="login()">Login</button>  
+    <p id="loginMsg" style="color:red;"></p>  
+  </div>  <nav id="navbar">  
+    <a href="#" class="tab-btn active" data-tab="dashboard">Dashboard</a>  
+    <a href="#" class="tab-btn" data-tab="services">Services</a>  
+    <a href="#" class="tab-btn" data-tab="reports">Reports</a>  
+    <a href="#" class="tab-btn" data-tab="support">Support</a>  
+    <a href="#" class="tab-btn" data-tab="settings">Settings</a>  
+    <a href="#" class="tab-btn" data-tab="history">History</a>  
+  </nav>  <div class="container active-tab" id="dashboard">  
+    <h2>Welcome to Digital eService Dashboard</h2>  
+    <p>Select from the menu to access services.</p>  
+  </div>  <div class="container" id="services">  
+    <h2>All Services</h2>  
+    <div class="sub-tabs">  
+      <button onclick="showSub('banking')">Banking</button>  
+      <button onclick="showSub('recharge')">Recharge</button>  
+      <button onclick="showSub('filing')">Filing</button>  
+      <button onclick="showSub('gov')">Government</button>  
+    </div>  
+    <div id="banking" class="container">  
+      <h3>Bank Account Opening</h3>  
+      <div class="card-grid">  
+        <a href="https://www.kotak.com/" target="_blank"><div class="card"><img src="images/kotak.jpg"><p>Kotak Mahindra Bank</p></div></a>  
+        <a href="https://www.axisbank.com/" target="_blank"><div class="card"><img src="images/axix.jpg"><p>Axis Bank</p></div></a>  
+        <a href="https://www.hdfcbank.com/" target="_blank"><div class="card"><img src="images/hdfc.jpg"><p>HDFC Bank</p></div></a>  
+        <a href="https://www.icicibank.com/" target="_blank"><div class="card"><img src="images/icici.jpg"><p>ICICI Bank</p></div></a>  
+        <a href="https://www.idfcfirstbank.com/" target="_blank"><div class="card"><img src="images/idfc.jpg"><p>IDFC  First Bank</p></div></a>  
+  
+  <a href="https://retail.onlinesbi.sbi/personal/" target="_blank"><div class="card"><img src="images/sbi.jpg"><p>SBI Bank</p></div></a>  
+    
+  <a href="https://www.bankofbaroda.in/" target="_blank"><div class="card"><img src="images/bob.jpg"><p>Bank of Baroda</p></div></a>  
+  <a href="https://www.pnbindia.in/" target="_blank"><div class="card"><img src="images/pnb.jpg"><p>Punjab National Bank</p></div></a>  
+  <a href="https://www.yesbank.in/" target="_blank"><div class="card"><img src="images/yesbank.jpg"><p>Yes Bank</p></div></a>  
+  <a href="https://myaccount.indusind.com/SavingsAccount/index.aspx/" target="_blank"><div class="card"><img src="images/indusland.jpg"><p>IndusInd Bank</p></div></a>  
+  <a href="https://canarabank.com/" target="_blank"><div class="card"><img src="images/canara.jpg"><p>Canara Bank</p></div></a>  
+  <a href="https://www.unionbankofindia.co.in/" target="_blank"><div class="card"><img src="images/union.jpg"><p>Union Bank</p></div></a>  
+  <a href="https://www.centralbankofindia.co.in/" target="_blank"><div class="card"><img src="images/central.png"><p>Central Bank</p></div></a>  
+  <a href="https://www.bankofindia.co.in/" target="_blank"><div class="card"><img src="images/boi.jpg"><p>Bank of India</p></div></a>  
+  <a href="https://www.ucobank.com/" target="_blank"><div class="card"><img src="images/uco.png"><p>UCO Bank</p></div></a>  
+  <a href="https://www.indianbank.in/" target="_blank"><div class="card"><img src="images/indianbank.jpg"><p>Indian Bank</p></div></a>  
+  <a href="https://www.iob.in/" target="_blank"><div class="card"><img src="images/indianoverseas.jpg"><p>Indian Overseas Bank</p></div></a>  
+  <a href="https://www.federalbank.co.in/" target="_blank"><div class="card"><img src="images/federal.jpg"><p>Federal Bank</p></div></a>  
+  <a href="https://www.southindianbank.com/" target="_blank"><div class="card"><img src="images/southindian.jpg"><p>South Indian Bank</p></div></a>  
+  <a href="https://karnatakabank.com/" target="_blank"><div class="card"><img src="images/karnatka.jpg"><p>Karnataka Bank</p></div></a>  
+</div>  
+ 
+<h3>Apply Credit Card</h3>  
+<div class="card-grid">  
+  <a href="https://www.icicibank.com/credit-card" target="_blank"><div class="card"><img src="images/icici.jpg"><p>ICICI Bank Credit Card</p></div></a>  
+  <a href="https://www.hdfcbank.com/personal/pay/cards/credit-cards" target="_blank"><div class="card"><img src="images/hdfc.jpg"><p>HDFC Bank Credit Card</p></div></a>  
+  <a href="https://www.axisbank.com/retail/cards/credit-card" target="_blank"><div class="card"><img src="images/axix.jpg"><p>Axis Bank Credit Card</p></div></a>  
+  <a href="https://www.kotak.com/en/personal-banking/cards/credit-cards.html" target="_blank"><div class="card"><img src="images/kotak.jpg"><p>Kotak Mahindra Credit Card</p></div></a>  
+  <a href="https://www.bankofbaroda.in/personal-banking/cards/credit-cards" target="_blank"><div class="card"><img src="images/bob.jpg"><p>BoB Credit Card</p></div></a>  
+  <a href="https://www.pnbcard.in/" target="_blank"><div class="card"><img src="images/pnb.jpg"><p>PNB Credit Card</p></div></a>  
+  <a href="https://canarabank.com/User_page.aspx?othlink=135" target="_blank"><div class="card"><img src="images/canara.jpg"><p>Canara Bank Credit Card</p></div></a>  
+  <a href="https://www.centralbankofindia.co.in/en/credit-card" target="_blank"><div class="card"><img src="images/central.png"><p>Central Bank Credit Card</p></div></a>  
+  <a href="https://www.ucobank.com/english/credit-card.aspx" target="_blank"><div class="card"><img src="images/uco.png"><p>UCO Bank Card</p></div></a>  
+  <a href="https://www.idfcfirstbank.com/credit-card" target="_blank"><div class="card"><img src="images/idfc.jpg"><p>IDFC Bank Credit Card</p></div></a>  
+  <a href="https://www.indusind.com/in/en/personal/cards/credit-cards.html" target="_blank"><div class="card"><img src="images/indusland.jpg"><p>IndusInd Bank Credit Card</p></div></a>  
+  <a href="https://www.yesbank.in/personal-banking/cards/credit-cards" target="_blank"><div class="card"><img src="images/yesbank.jpg"><p>Yes Bank Credit Card</p></div></a>  
+  <a href="https://www.federalbank.co.in/credit-cards" target="_blank"><div class="card"><img src="images/federal.jpg"><p>Federal Bank Credit Card</p></div></a>  
+</div>  
+          
+      </div>  
+    </div>  
+    <div id="recharge" class="container">  
+      <h3>Recharge & Bill Payment Services</h3>  
+      <div class="card-grid">  
+        <div class="card-grid">  
+  <!-- Mobile Recharge -->  
+  <a href="https://www.jio.com/selfcare/recharge/mobility/" target="_blank"><div class="card"><img src="images/jio.jpg"><p>Jio Recharge</p></div></a>  
+  <a href="https://www.airtel.in/recharge" target="_blank"><div class="card"><img src="images/airtel.jpg"><p>Airtel Recharge</p></div></a>  
+  <a href="https://www.myvi.in/prepaid-online-recharge" target="_blank"><div class="card"><img src="images/vodafone.jpg"><p>Vi Recharge</p></div></a>  
+  <a href="https://portal.bsnl.in/myportal/recharge" target="_blank"><div class="card"><img src="images/bsnl.jpg"><p>BSNL Recharge</p></div></a>  
+  
+  <!-- DTH Recharge -->  
+  <a href="https://www.tataplay.com/my-account" target="_blank"><div class="card"><img src="images/tataplay.jpg"><p>Tata Play</p></div></a>  
+  <a href="https://www.airtel.in/dth/" target="_blank"><div class="card"><img src="images/airteldth.jpg"><p>Airtel DTH</p></div></a>  
+  <a href="https://www.dishtv.in/" target="_blank"><div class="card"><img src="images/dishtv.jpg"><p>Dish TV</p></div></a>  
+  <a href="https://www.sundirect.in/" target="_blank"><div class="card"><img src="images/sundirect.jpg"><p>Sun Direct</p></div></a>  
+  
+  
+  
+   
+  <a href="https://my.ebharatgas.com/" target="_blank"><div class="card"><img src="images/bharatgas.jpg"><p>BharatGas</p></div></a>  
+  <a href="https://indane.co.in/" target="_blank"><div class="card"><img src="images/indiangas.jpg"><p>Indane Gas</p></div></a>   
+</div>  
+  
+<h3> Wallet / UPI Portals </h3>  
+  <!-- Wallets / UPI Portals -->  
+  <a href="https://paytm.com/recharge" target="_blank"><div class="card"><img src="images/paytm.jpg"><p>Paytm Recharge</p></div></a>  
+  
+  <a href="https://pay.google.com/" target="_blank"><div class="card"><img src="images/googleplay.jpg"><p>Google Pay</p></div></a>  
+  <a href="https://www.mobikwik.com/recharge" target="_blank"><div class="card"><img src="images/mobikwik.jpg"><p>Mobikwik</p></div></a>  
+        <a href="https://paytm.com/recharge" target="_blank"><div class="card"><img src="images/rechargeservice.jpg"><p>Mobile Recharge</p></div></a>  
+       <a href="https://www.bharatbillpay.com/" target="_blank"><div class="card"><img src="images/electricity.jpg"><p>Electricity</p></div></a>  
+        <a href="https://licindia.in/" target="_blank"><div class="card"><img src="images/lic.jpg"><p>LIC</p></div></a>  
+        <a href="https://www.fastag.org/" target="_blank"><div class="card"><img src="images/fastag.jpg"><p>FASTag</p></div></a>  
+        <!-- Add all major utilities -->  
+      </div>  
+    </div>  
+    <div id="filing" class="container">  
+      <h3>Filing Services</h3>  
+      <div class="card-grid">  
+        <a href="https://reg.gst.gov.in/" target="_blank"><div class="card"><img src="images/gst.jpg"><p>GST</p></div></a>  
+        <a href="https://udyamregistration.gov.in/" target="_blank"><div class="card"><img src="images/msme.jpg"><p>MSME</p></div></a>  
+        <a href="https://incometaxindiaefiling.gov.in/" target="_blank"><div class="card"><img src="images/itr.jpg"><p>ITR</p></div></a>  
+        <a href="https://tin.tin.nsdl.com/pan2/" target="_blank"><div class="card"><img src="images/pan.jpg"><p>PAN</p></div></a>  
+        <a href="https://www.fssai.gov.in/" target="_blank"><div class="card"><img src="images/fssai.jpg"><p>FSSAI</p></div></a>  
+        <!-- Add full national filing services -->  
+      </div>  
+    </div>  
+    <div id="gov" class="container">  
+      <h3>Government Services</h3>  
+      <div class="card-grid">  
+        <a href="https://myaadhaar.uidai.gov.in/" target="_blank"><div class="card"><img src="images/aadhar.jpg"><p>Aadhar</p></div></a>  
+        <a href="https://voters.eci.gov.in/" target="_blank"><div class="card"><img src="images/votarid.jpg"><p>Voter ID</p></div></a>  
+        <a href="https://eshram.gov.in/" target="_blank"><div class="card"><img src="images/eshram.jpg"><p>eShram</p></div></a>  
+        <a href="https:/serviceonline.bihar.gov.in/" target="_blank"><div class="card"><img src="images/rtps.jpg"><p>RTPS Bihar</p></div></a>  
+        <a href="https://passportindia.gov.in/" target="_blank"><div class="card"><img src="images/passport.jpg"><p>Passport</p></div></a>  
+        <!-- Add all Indian govt digital portals -->  
+      </div>  
+    </div>  
+  </div>  <div class="container" id="reports">  
+    <h2>Reports</h2>  
+    <p>Recharge, AEPS, PAN, history and usage reports appear here.</p>  
+  </div>  <div class="container" id="support">  
+    <h2>Support</h2>  
+    <p>Contact us directly through:</p>  
+    <div class="sub-tabs">  
+      <a href="https://wa.me/919015084656" target="_blank"><button class="sub-tabs">WhatsApp</button></a>  
+      <a href="https://t.me/9015084656" target="_blank"><button class="sub-tabs">Telegram</button></a>  
+      <a href="mailto:shivammishra32994@gmail.com"><button class="sub-tabs">Gmail</button></a>  
+      <a href="https://twitter.com/9015084656" target="_blank"><button class="sub-tabs">Twitter</button></a>  
+      <a href="#"><button class="sub-tabs">Instagram</button></a>  
+    </div>  
+  </div>  <div class="container" id="settings">  
+    <h2>Settings</h2>  
+    <p>Update profile, change password, manage preferences.</p>  
+  </div>  <div class="container" id="history">  
+    <h2>History</h2>  
+    <p>All your login and transaction history will appear here.</p>  
+  </div>  <footer>  
+    <p>Contact: 9015084656 | Email: shivammishra32994@gmail.com</p>  
+    <p>&copy; 2025 Digital eService</p>  
+  </footer>  <script>  
+    function login() {  
+      const u = document.getElementById("username").value;  
+      const p = document.getElementById("password").value;  
+      if (u === "Shivam" && p === "9015") {  
+        document.getElementById("loginBox").style.display = "none";  
+        document.getElementById("navbar").style.display = "block";  
+        document.getElementById("dashboard").style.display = "block";  
+      } else {  
+        document.getElementById("loginMsg").innerText = "Invalid credentials!";  
+      }  
+    }  
+  
+    const tabs = document.querySelectorAll(".tab-btn");  
+    const containers = document.querySelectorAll(".container");  
+    tabs.forEach(tab => {  
+      tab.addEventListener("click", () => {  
+        tabs.forEach(t => t.classList.remove("active"));  
+        tab.classList.add("active");  
+        containers.forEach(c => c.style.display = "none");  
+        document.getElementById(tab.dataset.tab).style.display = "block";  
+      });  
+    });  
+  
+    function showSub(id) {  
+      ["banking", "recharge", "filing", "gov"].forEach(tab => {  
+        document.getElementById(tab).style.display = "none";  
+      });  
+      document.getElementById(id).style.display = "block";  
+    }  
+  </script></body>  
+</html>  
+  
+  
+  
+  
+
+
+  <!-- Main scripts last me -->
+  <script>
+    function login() {
+      const u = document.getElementById("username").value;
+      const p = document.getElementById("password").value;
+      if (u === "Shivam" && p === "9015") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("navbar").style.display = "block";
+        document.getElementById("dashboard").style.display = "block";
+      } else {
+        document.getElementById("loginMsg").innerText = "Invalid credentials!";
+      }
+    }
+
+    const tabs = document.querySelectorAll(".tab-btn");
+    const containers = document.querySelectorAll(".container");
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        containers.forEach(c => c.style.display = "none");
+        document.getElementById(tab.dataset.tab).style.display = "block";
+      });
+    });
+
+    function showSub(id) {
+      ["banking", "recharge", "filing", "gov"].forEach(tab => {
+        document.getElementById(tab).style.display = "none";
+      });
+      document.getElementById(id).style.display = "block";
+    }
+  </script>
+</body>
+</html>
